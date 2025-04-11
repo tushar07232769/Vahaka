@@ -1,0 +1,19 @@
+{
+  "name": "Vahaka",
+  "version": "1.0",
+  "author": "Amynasec Research Labs",
+  "description": "Electric Scooter Simulation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http": "latest",
+    "socket.io": "^4.7.2",
+    "socketcan": "latest",
+    "path": "latest",
+    "child_process": "latest",
+    "readline": "latest"
+  }
+}
