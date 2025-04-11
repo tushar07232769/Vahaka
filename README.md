@@ -9,6 +9,7 @@ VAHAKA is designed to replicate the key electronic and communication features of
 ## 🔍 Key Features
 
 -   Virtual simulation of electric scooter ECUs and CAN communication
+-   Ability to generate Fixed and Randomized CANBUS Arbitration IDs
 -   No physical scooter required – fully software-based platform
 -   Safe environment for executing and learning offensive/defensive techniques
 -   Suitable for workshops, training sessions, academic research, and industry learning
