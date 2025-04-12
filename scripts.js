@@ -299,10 +299,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let dataStr;
 
         if (type === 'int') {
-            console.log(data);
             dataStr = (data).toString(16).toUpperCase();
             dataStr = dataStr.padStart(Math.ceil(dataStr.length / 2) * 2, '0');
-            console.log(dataStr);
 
         }
         else {
@@ -313,11 +311,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         socket.emit('sendCANMessage', { id, data: dataStr });
-        console.log(`Sent CAN message: ${id}, ${data}`);
     }
 
     function increaseValue() {
-        console.log(standVal, engineVal);
         if (standVal == false && engineVal == true) {
             const video = document.getElementById("video");
             if (circle2Value == 0) {
@@ -780,7 +776,6 @@ document.addEventListener('DOMContentLoaded', function () {
     socket.on('canMessage', handleCANMessage);
 
     function handleCANMessage(message) {
-        console.log('Received CAN message:', message);
 
         let data = message.data;
 
@@ -821,7 +816,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateCruise(data);
                 break;
             default:
-                console.log('Unknown CAN message ID:', stringID);
+                break;
         }
     }
 
@@ -849,9 +844,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             idsAssigned = true;
-            variables.forEach((variableName) => {
-                console.log(`Value of ${variableName} = ${window[variableName]}`);
-            });
 
         } else {
             let fixedValues = [
@@ -867,9 +859,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             idsAssigned = true;
-            variables.forEach((variableName) => {
-                console.log(`Value of ${variableName} = ${window[variableName]}`);
-            });
 
         }
     }
@@ -877,10 +866,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateSpeedReceive(data) {
         const speed = parseInt(data, 16) - 300;
 
-        console.log(speed);
-
         if (speed >= 0 && speed < 301) {
-            console.log('Speed edited.');
             circle2Value = speed;
             speedGlobal = speed;
             circle2.textContent = `${speed} KM/H`;
@@ -909,7 +895,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateBatteryReceive(data) {
         const battery = parseInt(data, 16) - 285;
-        console.log(data, battery);
 
         if (!isNaN(battery) && battery >= 0 && battery <= 100) {
             circle1Value = battery;
@@ -1029,7 +1014,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateStorage(data) {
-        console.log(data);
         if (data === '55') {
             storageCircle.src = 'img/seat_unlock.png';
             storageText.textContent = 'Seat UNLCK';
@@ -1185,6 +1169,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     setInterval(updateCANBusy, 100);
-
-    console.log('CAN message handler initialized');
 });
