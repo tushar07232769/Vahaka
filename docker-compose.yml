@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  vahaka:
+    build: ./app
+    container_name: vahaka_app
+    privileged: true
+    network_mode: bridge
+    expose:
+      - 7575
+
+  nginx:
+    image: nginx:stable
+    container_name: vahaka_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - vahaka

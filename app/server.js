@@ -29,8 +29,7 @@ let app_text =
 console.log(app_text);
 
 
-console.log("\nVAHAKA v1.0 by Amynasec Research Labs.");
-console.log("Core Contributors : Arun Mane, Omkar Mali, Smit Verma.\n");
+console.log("\nVAHAKA v2.0 by Tushar Gawade ");
 
 function setupVirtualCAN() {
     console.log('Checking for vcan0 interface...');
@@ -152,7 +151,7 @@ function askRandomize() {
 
 async function startServer() {
     await askRandomize();
-    server.listen(7575, '127.0.0.1', () => {
+    server.listen(7575, '0.0.0.0', () => {
         setupVirtualCAN();
     });
 }

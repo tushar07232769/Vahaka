@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="clustering">
+        <div class="sidebar">
+            <div>
+                <img style="width: 50px;" id="sideCruise" src="img/cruise_off.png" alt="Default">
+            </div>
+            <div class="icon-box" onclick="switchCluster('default')">
+                <img id="side1" src="img/home_active.png" alt="Default">
+            </div>
+            <div class="icon-box" onclick="switchCluster('music')">
+                <img id="side2" src="img/music.png" alt="Music">
+            </div>
+            <div class="icon-box" onclick="switchCluster('navigation')">
+                <img id="side3" src="img/navigation.png" alt="Navigation">
+            </div>
+            <div>
+                <img style="width: 50px;" id="sideStand" src="img/stand_on.png" alt="Navigation">
+            </div>
+        </div>
+        <div class="main_cluster">
+            <div class="cluster_default" style="margin-top: -40px;">
+                
+                <div class="triangle left" id="left-triangle"></div>
+                <div class="triangle right" id="right-triangle"></div>
+                <div class="circles">
+                    <div class="circle" id="circle1" style="margin-bottom: -20px;">
+                        <p>100%</p>
+                        <p class="tagline" style="margin-top: 8px;">Battery</p>
+                        <p class="small-text">Remaining</p>
+                    </div>
+                    <div class="circle" id="circle2" style="margin-bottom: -20px; position: relative;">
+                        <p style="margin-top: 40px;" id="circle2_speedContent">0 KM/H</p>
+                        <p style="margin-top: 10px;" id="circle2_currentSpeedLabel">Current Speed</p>
+                        <p style="margin-top: 40px; font-size: 16px;" id="circle2_maxspeed_eco"
+                            style="font-size: 20px;">
+                            200KM/H<br>Max Speed</p>
+                        <p style="margin-top: 40px; font-size: 16px; display: none;" id="circle2_maxspeed_sport"
+                            style="font-size: 20px;">300KM/H<br>Max Speed</p>
+
+                        <img id="reverseImg" src="img/reverse_on_cluster.png"
+                            style="display: none; width: 80%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" />
+                        <img id="reverseBorderImg" src="img/reverse2border.png"
+                            style="display: none; width: 160%; position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);" />
+                    </div>
+                    <div class="circle" id="circle3" style="margin-bottom: -20px;">
+                        <img class="weatherIcon" id="weather-icon" style="margin-top: -30px; opacity: 100%;" width="70%"
+                            src="img/sunnyicon.png">
+                        <p id="weather-val" style="margin-top: -10px;">Loading...</p>
+
+                    </div>
+                </div>
+                <div class="text-boxes">
+                    <div class="text-box">
+                        <div class="line-small">Estimated Distance</div>
+                        <div class="line-large">120 KM</div>
+                    </div>
+                    <div class="text-box">
+                        <div class="line-small">Next Power Station</div>
+                        <div class="line-large">New York (80 KM)</div>
+                    </div>
+                    <div class="text-box">
+                        <div class="line-small">Average Speed</div>
+                        <div class="line-large">150 Km/Hr</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cluster_music">
+                <div class="music-content">
+                    <div id="player02" class="player horizontal">
+                        <div class="wrapper">
+                            
+                            <div class="info-wrapper">
+                                <img src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_1280.jpg"
+                                    alt="LogoMusicImage">
+                                <div class="info">
+                                    <h1>Pop Hits (2025)</h1>
+                                    <p>All Star Records</p>
+                                </div>
+                            </div>
+
+                            /
+                            <div class="controls">
+                                <div class="prev">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M2.33917 13.7397L12.9664 7.38149C13.2293 7.22152 13.5303 7.13509 13.8381 7.13123C14.1458 7.12737 14.4489 7.20622 14.7157 7.35955C15.0053 7.52815 15.245 7.77036 15.4107 8.0616C15.5763 8.35284 15.6619 8.68272 15.6588 9.01775V13.4657L25.8274 7.3798C26.0903 7.21983 26.3914 7.13341 26.6991 7.12955C27.0068 7.12568 27.3099 7.20454 27.5768 7.35786C27.8663 7.52646 28.1061 7.76867 28.2717 8.05991C28.4373 8.35115 28.5229 8.68103 28.5198 9.01606V21.4512C28.5231 21.7863 28.4376 22.1163 28.2719 22.4077C28.1063 22.699 27.8664 22.9413 27.5768 23.1099C27.3099 23.2632 27.0068 23.3421 26.6991 23.3382C26.3914 23.3344 26.0903 23.2479 25.8274 23.088L15.6588 16.9993V21.4489C15.6625 21.7844 15.5771 22.1149 15.4114 22.4067C15.2458 22.6985 15.0057 22.9411 14.7157 23.1099C14.4489 23.2632 14.1458 23.3421 13.8381 23.3382C13.5303 23.3344 13.2293 23.2479 12.9664 23.088L2.33917 16.7298C2.08653 16.5715 1.87825 16.3516 1.73386 16.0908C1.58948 15.83 1.51373 15.5368 1.51373 15.2387C1.51373 14.9406 1.58948 14.6473 1.73386 14.3865C1.87825 14.1257 2.08653 13.9058 2.33917 13.7476V13.7397Z"
+                                            fill="#E1E1E6" />
+                                    </svg>
+                                </div>
+                                <div class="play" id="playBtn">
+                                    
+                                    <svg id="playIcon" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.32137 25.586C7.9759 25.5853 7.63655 25.4948 7.33669 25.3232C6.66148 24.9406 6.24173 24.1978 6.24173 23.3915V7.07398C6.24173 6.26542 6.66148 5.52494 7.33669 5.14232C7.64369 4.96589 7.99244 4.87516 8.3465 4.87961C8.70056 4.88407 9.04692 4.98354 9.34938 5.16764L23.2952 13.5155C23.5859 13.6977 23.8255 13.9508 23.9916 14.251C24.1577 14.5511 24.2448 14.8886 24.2448 15.2316C24.2448 15.5747 24.1577 15.9121 23.9916 16.2123C23.8255 16.5125 23.5859 16.7655 23.2952 16.9478L9.34713 25.2979C9.0376 25.485 8.68307 25.5846 8.32137 25.586V25.586Z"
+                                            fill="#E1E1E6" />
+                                    </svg>
+                                    <svg id="pauseIcon" style="display: none;" width="30" height="30"
+                                        viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9 3C9 2.44772 9.44772 2 10 2H13C13.5523 2 14 2.44772 14 3V27C14 27.5523 13.5523 28 13 28H10C9.44772 28 9 27.5523 9 27V3Z"
+                                            fill="#E1E1E6" />
+                                        <path
+                                            d="M17 3C17 2.44772 17.4477 2 18 2H21C21.5523 2 22 2.44772 22 3V27C22 27.5523 21.5523 28 21 28H18C17.4477 28 17 27.5523 17 27V3Z"
+                                            fill="#E1E1E6" />
+                                    </svg>
+                                </div>
+                                <div class="next">
+                                    <svg width="29" height="30" viewBox="0 0 29 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_42_51)">
+                                            <path
+                                                d="M27.1426 13.7397L16.5154 7.38149C16.2525 7.22152 15.9514 7.13509 15.6437 7.13123C15.336 7.12737 15.0329 7.20622 14.766 7.35955C14.4765 7.52815 14.2368 7.77036 14.0711 8.0616C13.9055 8.35284 13.8199 8.68272 13.823 9.01775V13.4657L3.65435 7.3798C3.39144 7.21983 3.0904 7.13341 2.78268 7.12955C2.47495 7.12568 2.17183 7.20454 1.905 7.35786C1.61547 7.52646 1.37571 7.76867 1.21008 8.05991C1.04445 8.35115 0.958845 8.68103 0.961955 9.01606V21.4512C0.958745 21.7863 1.0443 22.1163 1.20994 22.4076C1.37558 22.699 1.61538 22.9413 1.905 23.1099C2.17183 23.2632 2.47495 23.3421 2.78268 23.3382C3.0904 23.3344 3.39144 23.2479 3.65435 23.088L13.823 16.9993V21.4489C13.8194 21.7844 13.9048 22.1149 14.0704 22.4066C14.2361 22.6984 14.4761 22.9411 14.766 23.1099C15.0329 23.2632 15.336 23.3421 15.6437 23.3382C15.9514 23.3344 16.2525 23.2479 16.5154 23.088L27.1426 16.7298C27.3953 16.5715 27.6035 16.3516 27.7479 16.0908C27.8923 15.83 27.968 15.5368 27.968 15.2387C27.968 14.9406 27.8923 14.6473 27.7479 14.3865C27.6035 14.1257 27.3953 13.9058 27.1426 13.7476V13.7397Z"
+                                                fill="#E1E1E6" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_42_51">
+                                                <rect width="28.8089" height="29.2552" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            
+                            <div class="track-time">
+                                <div style="position: relative; width: 100%;">
+                                    <div style="position: absolute; top: 0;" class="track" id="progressBar"> </div>
+                                </div>
+                                <div class="track" style="opacity: 0.5;" id="progressBar"></div>
+                                <div class="time">
+                                    <div class="total-time" id="totalTime">02:30</div>
+                                    <div class="last-time" id="currentTime">00:00</div>
+                                </div>
+                            </div>
+
+                            
+                            <audio id="audioPlayer" preload="metadata" src="music1.mp3"></audio>
+                        </div>
+
+                        <div class="equalizer" style="justify-content: center; width: 90%; margin-top: 30px;">
+                            <div class="bar" data-level="50"></div>
+                            <div class="bar" data-level="40"></div>
+                            <div class="bar" data-level="60"></div>
+                            <div class="bar" data-level="30"></div>
+                            <div class="bar" data-level="70"></div>
+                            <div class="bar" data-level="40"></div>
+                            <div class="bar" data-level="60"></div>
+                            <div class="bar" data-level="30"></div>
+                            <div class="bar" data-level="70"></div>
+                        </div>
+                        <h4 style="text-align: center; margin-left: -40px;"> 7-band HiFi Equalizer</h4>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="cluster_navigation" style="width: 100%; margin-right: -110px; height: 100%;">
+                <div class="map-content">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d377116.8739756058!2d78.96288!3d20.593684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1675362518884!5m2!1sen!2sin"
+                        width="100%" height="100%" frameborder="0" style="border:0;" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <img id="handleImg" src="img/handle.png" />
+    <div class="scooter_area">
+        <img id="scooter" src="img/scooter_es.png"
+            style="z-index: 1;position: absolute; width: 600px; bottom: 0; left: 50%; transform: translateX(-50%);">
+
+
+        <video id="videoBG" loop
+            style="position: absolute; width: 700px; bottom: 0; left: 50%; transform: translateX(-50%);">
+            <source src="img/road.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video id="video" loop
+            style="position: absolute; width: 700px; bottom: 0; left: 50%; transform: translateX(-50%);">
+            <source src="img/road.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="engine-toggle" id="engine-toggle" style="z-index: 2;">
+            <div> <img src="img/engine_off.png" id="engine_img" style="width: 23px;" /> </div>
+            <div style="width: 80%; justify-content: center;">
+                <div class="engine-text">Engine OFF</div>
+            </div>
+        </div>
+
+        <div class="stand-toggle" id="stand-toggle" style="z-index: 2;">
+            <div> <img src="img/stand_on.png" id="stand_img" style="width: 25px;" /> </div>
+            <div style="width: 80%; justify-content: center;">
+                <div class="stand-text">Stand ON</div>
+            </div>
+        </div>
+
+        <div class="cruise-toggle" id="cruise-toggle" style="z-index: 2;">
+            <div> <img src="img/cruise_off.png" id="cruise_img" style="width: 23px;" /> </div>
+            <div style="width: 80%; justify-content: center;">
+                <div class="cruise-text">Cruise OFF</div>
+            </div>
+        </div>
+
+        <div class="reverse-toggle" id="reverse-toggle" style="z-index: 2;">
+            <div> <img src="img/reverse_off.png" id="reverse_img" style="width: 23px;" /> </div>
+            <div style="width: 80%; justify-content: center;">
+                <div class="reverse-text">Reverse OFF</div>
+            </div>
+        </div>
+
+        <div class="mode-toggle" id="mode-toggle" style="z-index: 2;">
+            <div class="mode-circle"></div>
+            <div style="width: 80%; justify-content: center;">
+                <div class="mode-text">Eco Mode</div>
+            </div>
+        </div>
+
+        <div class="storage-toggle" id="storage-toggle" style="z-index: 2;">
+            <div> <img src="img/seat_lock.png" id="storage_img" style="width: 20px;" /></div>
+            <div style="width: 80%; justify-content: center;">
+                <div class="storage-text">Seat LOCK</div>
+            </div>
+        </div>
+    </div>
+    <div class="center-logo">
+        <img src="img/logo.png" alt="Logo">
+    </div>
+
+
+    <div class="ecu_area">
+        <img id="ecu_img" src="img/ecu.png" style="width: 650px;">
+    </div>
+
+    <div class="controls_area">
+        <img src="img/controls_white.png" style="width: 40%;">
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        function switchCluster(which) {
+            if (which === 'default') {
+                document.querySelector('.cluster_default').style.display = 'block';
+                document.querySelector('.cluster_music').style.display = 'none';
+                document.querySelector('.cluster_navigation').style.display = 'none';
+                document.getElementById('side1').src = 'img/home_active.png'
+                document.getElementById('side2').src = 'img/music.png'
+                document.getElementById('side3').src = 'img/navigation.png'
+            }
+            else if (which === 'music') {
+                document.querySelector('.cluster_default').style.display = 'none';
+                document.querySelector('.cluster_music').style.display = 'block';
+                document.querySelector('.cluster_navigation').style.display = 'none';
+                document.getElementById('side1').src = 'img/home.png'
+                document.getElementById('side2').src = 'img/music_active.png'
+                document.getElementById('side3').src = 'img/navigation.png'
+            }
+            else if (which === 'navigation') {
+                document.querySelector('.cluster_default').style.display = 'none';
+                document.querySelector('.cluster_music').style.display = 'none';
+                document.querySelector('.cluster_navigation').style.display = 'block';
+                document.getElementById('side1').src = 'img/home.png'
+                document.getElementById('side2').src = 'img/music.png'
+                document.getElementById('side3').src = 'img/navigation_active.png'
+            }
+        }
+        switchCluster('default');
+    </script>
+
+    <script>
+        document.querySelectorAll('.bar').forEach(bar => {
+            bar.style.height = bar.dataset.level + '%';
+
+            bar.addEventListener('mousedown', (e) => {
+                const moveHandler = (e) => {
+                    let rect = bar.parentElement.getBoundingClientRect();
+                    let newHeight = Math.max(10, Math.min(100, ((rect.bottom - e.clientY) / rect.height) * 100));
+                    bar.style.height = newHeight + '%';
+                };
+
+                const stopHandler = () => {
+                    window.removeEventListener('mousemove', moveHandler);
+                    window.removeEventListener('mouseup', stopHandler);
+                };
+
+                window.addEventListener('mousemove', moveHandler);
+                window.addEventListener('mouseup', stopHandler);
+            });
+        });
+
+        const playBtn = document.getElementById("playBtn");
+        const playIcon = document.getElementById("playIcon");
+        const pauseIcon = document.getElementById("pauseIcon");
+        const audioPlayer = document.getElementById("audioPlayer");
+        const progressBar = document.getElementById("progressBar");
+        const currentTime = document.getElementById("currentTime");
+        const totalTime = document.getElementById("totalTime");
+
+        playBtn.addEventListener("click", () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                audioPlayer.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+
+        
+        audioPlayer.addEventListener("timeupdate", () => {
+            const current = audioPlayer.currentTime;
+            const duration = audioPlayer.duration;
+            const progress = (current / duration) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            
+            let minutes = Math.floor(current / 60);
+            let seconds = Math.floor(current % 60);
+            if (seconds < 10) seconds = '0' + seconds;
+            currentTime.textContent = `${minutes}:${seconds}`;
+
+            
+            minutes = Math.floor(duration / 60);
+            seconds = Math.floor(duration % 60);
+            if (seconds < 10) seconds = '0' + seconds;
+            totalTime.textContent = `0${minutes}:${seconds}`;
+        });
+    </script>
+</body>
+
+</html>

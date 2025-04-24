@@ -38,32 +38,7 @@ This is the **first version** of VAHAKA, and it will continue to evolve. Future 
 -   Advanced threat modeling modules
 -   Real-time telemetry and dashboard integrations
 
-## 🎥 Attack Scenario Demonstrations
 
-We will soon be releasing a series of **attack scenario demonstration videos** on the [Amynasec YouTube Channel](https://youtube.com/@amynaseclabs), showcasing real-world hacking use cases implemented within VAHAKA.
-
-## 🛠️ Contributing
-
-**Contributors:**
-
--   [Arun Mane](https://github.com/arunm2110)
--   [Omkar Mali](https://github.com/0mk4rm4li)
--   [Smit Verma](https://github.com/smitverma)
-
-We welcome contributions from the community. Please feel free to submit pull requests, report issues, or suggest new features, enhancements and tools.
-
-----------
-
-## 📞 Contact & Support
-For questions, support, or collaboration opportunities, reach out via:
-- **Website**: [Amynasec Labs](https://amynasec.io)
-- **GitHub Issues**: [Submit an Issue](https://github.com/AmynaSec-Research-Labs/Vahaka/issues)
-
----
-
-_Developed by [Amynasec Labs](https://amynasec.io) for security professionals and researchers._
-
----
 📢 Version Information
 
 This is Vahaka Version 1. Future updates will be released accordingly.
